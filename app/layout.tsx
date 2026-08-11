@@ -82,7 +82,7 @@ function SiteFooter() {
           <p className="font-display-italic text-lg text-[#3a7d78]">
             News You Can Use - a fortnightly field note from the legal AI frontier.
           </p>
-          <p>Edited by Mike Kennedy.</p>
+        <p>Edited by Mikey Fielding.</p>
         </div>
       </div>
     </footer>
