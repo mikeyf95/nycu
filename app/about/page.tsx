@@ -24,8 +24,8 @@ export default function AboutPage() {
               pick out the pieces that fit your own interests.
             </p>
             <p>
-              Founded and written by <a href="https://www.linkedin.com/in/michaelkenn/" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#8a4a30] transition-colors">Mike Kennedy</a>, who edited
-              editions 1 to 46. Now brought to you by Mikey Fielding.
+              Founded and formerly written by <a href="https://www.linkedin.com/in/michaelkenn/" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#8a4a30] transition-colors">Mike Kennedy</a>, who edited
+              editions 1 to 46. Now brought to you by <a href="https://www.linkedin.com/in/mikey-fielding/" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#8a4a30] transition-colors">Mikey Fielding</a>.
             </p>
             <p>
               For the latest stats across legal tech, check out <a href="https://legaltech-stats.vercel.app" target="_blank" rel="noopener noreferrer" className="underline hover:text-[#8a4a30] transition-colors">The Signal</a>.
