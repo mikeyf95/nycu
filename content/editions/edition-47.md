@@ -4,7 +4,7 @@
 
 ## Opening
 
-The beginning of August is usually the quiet fortnight. This one was not. Three acquisitions landed in two days, a compliance deadline that a lot of people assumed had been postponed turned out to have arrived on schedule, and a piece of research put evidence behind what Edition 46 could only assert: that firms are deploying faster than they can measure, and that nobody has built the apparatus to tell whether any of it worked.
+The beginning of August is usually the quiet fortnight; this one was not. Three acquisitions landed in two days, a compliance deadline that a lot of people assumed had been postponed turned out to have arrived on schedule, and a piece of research put evidence behind what Edition 46 could only assert: that firms are deploying faster than they can measure, and that nobody has built the apparatus to tell whether any of it worked.
 
 The through line is that the market is being asked to show its workings, and the people doing the asking are no longer only clients. Regulators now have an enforcement toolkit with a date attached. Buyers are paying for talent and data rather than product, which is itself a judgement about what the last three years of building actually produced. And the firms furthest along on rollout are the ones discovering they cannot answer the question of what changed.
 
