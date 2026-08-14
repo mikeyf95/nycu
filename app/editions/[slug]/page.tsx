@@ -2,8 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllEditions, getEdition } from "@/lib/editions";
 import { EditionBody, EditionHero } from "../../components/EditionRender";
-import { JumpTo, type JumpItem } from "../../components/JumpTo";
-import { MARKER_COLOURS, sectionId } from "../../components/sectionIds";
+import { JumpTo } from "../../components/JumpTo";
+import { buildJumpItems } from "../../components/sectionIds";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -31,26 +31,7 @@ export default async function EditionPage({ params }: PageProps) {
   const newer = idx > 0 ? all[idx - 1] : null;
   const older = idx < all.length - 1 ? all[idx + 1] : null;
 
-  const jumpItems: JumpItem[] = [];
-  if (edition.opening) {
-    jumpItems.push({ id: "opening", label: "Opening", kind: "opening" });
-  }
-  edition.deepDives.forEach((d, i) => {
-    if (!d.title) return;
-    jumpItems.push({
-      id: sectionId("dive", d.title, i),
-      label: d.title,
-      kind: "dive",
-      colour: MARKER_COLOURS[i % MARKER_COLOURS.length],
-    });
-  });
-  const seenGroups: string[] = [];
-  edition.worthReading.forEach((w) => {
-    if (w.group && !seenGroups.includes(w.group)) seenGroups.push(w.group);
-  });
-  seenGroups.forEach((g, i) => {
-    jumpItems.push({ id: sectionId("wr", g, i), label: g, kind: "group" });
-  });
+  const jumpItems = buildJumpItems(edition);
 
   return (
     <main className="pb-20">

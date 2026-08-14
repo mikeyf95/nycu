@@ -1,14 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MARKER_COLOURS } from "./sectionIds";
+import { MARKER_COLOURS, type JumpItem } from "./sectionIds";
 
-export type JumpItem = {
-  id: string;
-  label: string;
-  kind: "opening" | "dive" | "group";
-  colour?: string;
-};
+export type { JumpItem };
 
 export function JumpTo({ items }: { items: JumpItem[] }) {
   const [active, setActive] = useState<string | null>(null);
@@ -121,5 +116,3 @@ export function JumpTo({ items }: { items: JumpItem[] }) {
     </>
   );
 }
-
-export { MARKER_COLOURS };
