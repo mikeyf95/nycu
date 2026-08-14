@@ -286,31 +286,42 @@ nav:not([data-jump-nav]) {
   }
 }
 
-/* Past-editions rail.
+/* Margin rails - past editions on the left, the jump nav on the right.
 
-   Positioned against the centre line rather than the viewport edge, so it
-   tracks the content column and can never overlap it: the widest column is
-   64rem (max-w-5xl), so its left edge sits at 50vw - 512px. Back off a 32px
-   gutter and the rail's own 200px and you get 50vw - 744px.
+   Both are positioned against the centre line rather than the viewport edge, so
+   they track the content column and cannot overlap it at any width: the widest
+   column is 64rem (max-w-5xl), so its edge sits 512px from centre. Back off a
+   32px gutter and the rail's own 200px and you get 50vw - 744px.
 
-   Below 1536px that lands too close to the viewport edge to breathe, so the
-   rail is hidden and the header's Archive link carries the load instead. */
-.editions-rail {
+   Below 96rem there is no margin to hold them, so both hide - the jump nav
+   falls back to its pinned button, past editions to the header's Archive link.
+   Keep that 96rem in step with Tailwind's 2xl, which the jump button's
+   `2xl:hidden` depends on, or there is a band of widths showing neither. */
+.editions-rail,
+[data-jump-nav] {
   display: none;
 }
 
-@media (min-width: 1536px) {
-  .editions-rail {
+@media (min-width: 96rem) {
+  .editions-rail,
+  [data-jump-nav] {
     display: block;
     position: fixed;
     top: 50%;
-    left: calc(50vw - 744px);
     transform: translateY(-50%);
     width: 200px;
     max-height: 72vh;
     overflow-y: auto;
     padding-right: 6px;
     z-index: 30;
+  }
+
+  .editions-rail {
+    left: calc(50vw - 744px);
+  }
+
+  [data-jump-nav] {
+    right: calc(50vw - 744px);
   }
 }
 

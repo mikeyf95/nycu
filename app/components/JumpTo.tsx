@@ -85,18 +85,17 @@ export function JumpTo({ items }: { items: JumpItem[] }) {
 
   return (
     <>
-      {/* Wide screens: a quiet rail in the margin beside the content. */}
-      <nav
-        data-jump-nav
-        aria-label="Jump to a section"
-        className="hidden xl:block fixed right-8 2xl:right-16 top-1/2 -translate-y-1/2 z-30 w-56"
-      >
+      {/* Wide screens: a quiet rail in the margin beside the content. Positioned
+          in globals.css alongside the past-editions rail, since the two share
+          the same centre-line maths. */}
+      <nav data-jump-nav aria-label="Jump to a section">
         <p className="eyebrow mb-3 text-[0.7rem]">Jump to</p>
         {list}
       </nav>
 
-      {/* Narrow screens: a pinned control that opens the same list. */}
-      <div className="xl:hidden fixed bottom-5 right-5 z-40">
+      {/* Narrow screens: a pinned control that opens the same list. Flips at the
+          same breakpoint as the rail, or there would be a band with neither. */}
+      <div className="2xl:hidden fixed bottom-5 right-5 z-40">
         {open ? (
           <div className="paper p-4 pr-5 mb-2 max-h-[65vh] overflow-y-auto shadow-lg w-64">
             <nav aria-label="Jump to a section">
