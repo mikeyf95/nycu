@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { DeepDive, Edition, InlineLink, WorthReadingItem } from "@/lib/editions";
+import { sectionId } from "./sectionIds";
 
 const WASH_COLOURS = [
   "rgba(127, 185, 180, 0.32)", // teal
@@ -41,7 +42,9 @@ export function OpeningSection({ opening }: { opening?: string }) {
             }}
           />
           <div className="relative">
-            <p className="eyebrow mb-2">Opening</p>
+            <p className="eyebrow mb-2" id="opening" data-jump-target>
+              Opening
+            </p>
             <div
               className="prose-ink text-base md:text-lg"
               dangerouslySetInnerHTML={{ __html: opening }}
@@ -119,7 +122,11 @@ function DeepDiveCard({ dive, washIndex }: { dive: DeepDive; washIndex: number }
       style={{ ["--wash-color" as string]: wash }}
     >
       {dive.title ? (
-        <h3 className="font-display text-2xl md:text-[1.9rem] leading-snug text-[#142028]">
+        <h3
+          id={sectionId("dive", dive.title, washIndex)}
+          data-jump-target
+          className="font-display text-2xl md:text-[1.9rem] leading-snug text-[#142028]"
+        >
           {dive.title}
         </h3>
       ) : null}
@@ -213,7 +220,11 @@ export function WorthReadingSection({
           {groups.map((g, gi) => (
             <div key={gi}>
               {g.group ? (
-                <h3 className="font-display text-xl md:text-2xl text-[#142028] mb-4 tracking-tight">
+                <h3
+                  id={sectionId("wr", g.group, gi)}
+                  data-jump-target
+                  className="font-display text-xl md:text-2xl text-[#142028] mb-4 tracking-tight"
+                >
                   <span className="font-display-italic text-[#8a4a30]">-</span> {g.group}
                 </h3>
               ) : null}
