@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getAllEditions, getEdition } from "@/lib/editions";
 import { EditionBody, EditionHero } from "../../components/EditionRender";
 import { JumpTo } from "../../components/JumpTo";
+import { PastEditions } from "../../components/PastEditions";
 import { buildJumpItems } from "../../components/sectionIds";
 
 type PageProps = { params: Promise<{ slug: string }> };
@@ -35,6 +36,7 @@ export default async function EditionPage({ params }: PageProps) {
 
   return (
     <main className="pb-20">
+      <PastEditions currentSlug={slug} />
       <JumpTo items={jumpItems} />
       <EditionHero edition={edition} />
       <EditionBody edition={edition} />

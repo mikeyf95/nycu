@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getAllEditions, getLatestEdition } from "@/lib/editions";
 import { EditionBody, EditionHero, ArchiveLink } from "./components/EditionRender";
 import { JumpTo } from "./components/JumpTo";
+import { PastEditions } from "./components/PastEditions";
 import { buildJumpItems } from "./components/sectionIds";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
 
   return (
     <main className="pb-20">
+      <PastEditions currentSlug={edition.slug} />
       <JumpTo items={jumpItems} />
       <EditionHero edition={edition} />
       <EditionBody edition={edition} />

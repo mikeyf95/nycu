@@ -1,4 +1,4 @@
-import { getAllEditions } from "@/lib/editions";
+import { getAllEditions, getEditionsByYear } from "@/lib/editions";
 import { ArchiveLink } from "../components/EditionRender";
 
 export const metadata = {
@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function ArchivePage() {
   const editions = getAllEditions();
-  const byYear = groupByYear(editions);
+  const byYear = getEditionsByYear();
 
   return (
     <main className="pb-20">
@@ -48,15 +48,4 @@ export default function ArchivePage() {
       </section>
     </main>
   );
-}
-
-function groupByYear(editions: ReturnType<typeof getAllEditions>) {
-  const map = new Map<string, typeof editions>();
-  for (const e of editions) {
-    const year = (e.dateStart || e.dateEnd || "").slice(0, 4) || "Undated";
-    if (!map.has(year)) map.set(year, []);
-    map.get(year)!.push(e);
-  }
-  const entries = Array.from(map.entries()).sort((a, b) => b[0].localeCompare(a[0]));
-  return entries.map(([year, editions]) => ({ year, editions }));
 }

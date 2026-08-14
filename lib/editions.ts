@@ -779,3 +779,18 @@ export function getEdition(slug: string): Edition | undefined {
 export function getLatestEdition(): Edition {
   return getAllEditions()[0];
 }
+
+// Editions bucketed by calendar year, newest year first. Shared by the archive
+// page and the past-editions rail so the two can't disagree about which year an
+// edition falls in.
+export function getEditionsByYear(): { year: string; editions: Edition[] }[] {
+  const map = new Map<string, Edition[]>();
+  for (const e of getAllEditions()) {
+    const year = (e.dateStart || e.dateEnd || "").slice(0, 4) || "Undated";
+    if (!map.has(year)) map.set(year, []);
+    map.get(year)!.push(e);
+  }
+  return Array.from(map.entries())
+    .sort((a, b) => b[0].localeCompare(a[0]))
+    .map(([year, editions]) => ({ year, editions }));
+}
