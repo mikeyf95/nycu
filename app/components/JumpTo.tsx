@@ -87,6 +87,7 @@ export function JumpTo({ items }: { items: JumpItem[] }) {
     <>
       {/* Wide screens: a quiet rail in the margin beside the content. */}
       <nav
+        data-jump-nav
         aria-label="Jump to a section"
         className="hidden xl:block fixed right-8 2xl:right-16 top-1/2 -translate-y-1/2 z-30 w-56"
       >
