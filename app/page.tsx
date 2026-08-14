@@ -1,13 +1,17 @@
 import Link from "next/link";
 import { getAllEditions, getLatestEdition } from "@/lib/editions";
 import { EditionBody, EditionHero, ArchiveLink } from "./components/EditionRender";
+import { JumpTo } from "./components/JumpTo";
+import { buildJumpItems } from "./components/sectionIds";
 
 export default function Home() {
   const edition = getLatestEdition();
   const recent = getAllEditions().filter((e) => e.slug !== edition.slug).slice(0, 3);
+  const jumpItems = buildJumpItems(edition);
 
   return (
     <main className="pb-20">
+      <JumpTo items={jumpItems} />
       <EditionHero edition={edition} />
       <EditionBody edition={edition} />
 

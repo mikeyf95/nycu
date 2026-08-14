@@ -1,14 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { MARKER_COLOURS } from "./sectionIds";
+import { MARKER_COLOURS, type JumpItem } from "./sectionIds";
 
-export type JumpItem = {
-  id: string;
-  label: string;
-  kind: "opening" | "dive" | "group";
-  colour?: string;
-};
+export type { JumpItem };
 
 export function JumpTo({ items }: { items: JumpItem[] }) {
   const [active, setActive] = useState<string | null>(null);
@@ -92,6 +87,7 @@ export function JumpTo({ items }: { items: JumpItem[] }) {
     <>
       {/* Wide screens: a quiet rail in the margin beside the content. */}
       <nav
+        data-jump-nav
         aria-label="Jump to a section"
         className="hidden xl:block fixed right-8 2xl:right-16 top-1/2 -translate-y-1/2 z-30 w-56"
       >
@@ -121,5 +117,3 @@ export function JumpTo({ items }: { items: JumpItem[] }) {
     </>
   );
 }
-
-export { MARKER_COLOURS };
