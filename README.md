@@ -83,6 +83,8 @@ app/
   editions/[slug]/page.tsx      # single edition
   about/page.tsx
   components/EditionRender.tsx  # hero, deep-dive cards, worth-reading grid
+  components/JumpTo.tsx         # in-page section nav (rail on wide screens, button on narrow)
+  components/sectionIds.ts      # shared anchor-id + marker-colour helpers
   globals.css                   # watercolour palette, paper cards, prose styles
   layout.tsx                    # site header, footer, fonts
 
@@ -95,4 +97,6 @@ content/
 
 ## Deploy
 
-Import `KilgoreHerring/nycu` into Vercel. Default Next.js build settings work as-is - no environment variables, no config changes required. Each commit to `main` ships to production.
+Import `mikeyf95/nycu` into Vercel. Default Next.js build settings work as-is - no environment variables, no config changes required. Each commit to `main` ships to production.
+
+The repo previously lived at `KilgoreHerring/nycu` under its founding editor; older links and deploy notes may still point there.
