@@ -1,6 +1,6 @@
 # News You Can Use
 
-A public-facing archive and reader for the fortnightly legal-AI newsletter *News You Can Use*, edited by Mike Kennedy.
+A public-facing archive and reader for the fortnightly legal-AI newsletter *News You Can Use*, edited by Mikey Fielding.
 
 Live: *(set after Vercel deploy)*
 
