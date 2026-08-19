@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import Link from "next/link";
 import { Analytics } from "@vercel/analytics/next";
@@ -21,6 +21,19 @@ export const metadata: Metadata = {
   title: "News You Can Use",
   description:
     "Fortnightly intelligence on legal AI - the market, the research, and the practitioners.",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "NYCU",
+  },
+  icons: {
+    apple: "/apple-touch-icon.png",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#f6f4ef",
 };
 
 export default function RootLayout({
