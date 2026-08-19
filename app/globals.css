@@ -319,37 +319,36 @@ nav:not([data-jump-nav]) {
   font-size: 0.7rem;
 }
 
-.editions-rail details {
+.editions-rail-year {
   border-top: 1px solid var(--color-border);
 }
 
-.editions-rail details:first-of-type {
+.editions-rail-year:first-of-type {
   border-top: none;
 }
 
-.editions-rail summary {
+.editions-rail-summary {
   display: flex;
+  width: 100%;
   align-items: baseline;
   justify-content: space-between;
   gap: 0.5rem;
   padding: 0.45rem 0;
   cursor: pointer;
-  list-style: none;
+  background: none;
+  border: none;
   color: #142028;
   font-size: 1.05rem;
+  font-family: inherit;
+  text-align: left;
   transition: color 150ms ease;
 }
 
-/* Safari still paints its own triangle without this. */
-.editions-rail summary::-webkit-details-marker {
-  display: none;
-}
-
-.editions-rail summary:hover {
+.editions-rail-summary:hover {
   color: #8a4a30;
 }
 
-.editions-rail summary:focus-visible,
+.editions-rail-summary:focus-visible,
 .editions-rail a:focus-visible {
   outline: 2px solid #3a7d78;
   outline-offset: 2px;
@@ -368,8 +367,26 @@ nav:not([data-jump-nav]) {
   color: #8a4a30;
 }
 
-.editions-rail details[open] > summary .editions-rail-count::after {
+.editions-rail-count[data-open="true"]::after {
   content: "\2212";
+}
+
+/* Grid-rows animates 0fr -> 1fr smoothly with no measured height and no
+   layout jump - the row track itself is the animated quantity, so this
+   still works if the list's height changes (a different edition count). */
+.editions-rail-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms ease;
+}
+
+.editions-rail-panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.editions-rail-panel-inner {
+  overflow: hidden;
+  min-height: 0;
 }
 
 .editions-rail ul {
