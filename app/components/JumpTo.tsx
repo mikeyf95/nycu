@@ -69,7 +69,7 @@ export function JumpTo({ items }: { items: JumpItem[] }) {
                 className={
                   item.kind === "dive"
                     ? "font-display text-[0.95rem]"
-                    : item.kind === "opening"
+                    : item.kind === "opening" || item.kind === "aside"
                       ? "eyebrow text-[0.7rem]"
                       : ""
                 }

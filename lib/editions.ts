@@ -23,6 +23,11 @@ export type WorthReadingItem = {
   extraLinks?: InlineLink[];
 };
 
+// A pull-out explainer that sits outside the Opening/Deep Dives/Worth Reading
+// flow - terminology notes, definitions, anything that frames the edition
+// without being part of its news. Optional, at most one per edition.
+export type Aside = { title?: string; body: string };
+
 export type Edition = {
   slug: string; // "edition-37"
   number: number;
@@ -33,6 +38,7 @@ export type Edition = {
   dateEnd: string; // ISO
   hook: string; // first sentence of opening or first line of body
   opening?: string; // HTML
+  aside?: Aside;
   deepDives: DeepDive[];
   worthReading: WorthReadingItem[];
   notInEdition?: WorthReadingItem[];
@@ -224,11 +230,14 @@ function parseModern(
     "";
 
   const opening = openingMd ? renderBlock(openingMd).trim() : undefined;
+  const aside = parseAside(sections.get("Aside") ?? "");
   const deepDives = parseDeepDives(deepDivesMd);
   const worthReading = parseWorthReading(worthReadingMd);
   const notInEdition = notInEditionMd ? parseWorthReading(notInEditionMd) : undefined;
 
-  const hook = firstSentence(opening ?? deepDives[0]?.intro ?? rawHtml);
+  // The aside sits ahead of the dives in the fallback chain: an edition can
+  // legitimately run an aside with no Opening, and the hook feeds archive cards.
+  const hook = firstSentence(opening ?? aside?.body ?? deepDives[0]?.intro ?? rawHtml);
 
   return {
     slug,
@@ -240,6 +249,7 @@ function parseModern(
     dateEnd,
     hook,
     opening,
+    aside,
     deepDives,
     worthReading,
     notInEdition,
@@ -418,6 +428,27 @@ function splitByH2(raw: string): Map<string, string> {
   }
   flush();
   return result;
+}
+
+// --------- aside ----------
+
+// "## Aside" with an optional "### Title" on the first non-empty line, then
+// free markdown. Absent or empty sections return undefined so the renderer can
+// skip the block entirely.
+function parseAside(md: string): Aside | undefined {
+  if (!md.trim()) return undefined;
+  const lines = md.split(/\r?\n/);
+  let i = 0;
+  while (i < lines.length && !lines[i].trim()) i++;
+  let title: string | undefined;
+  const h3 = lines[i]?.match(/^###\s+(.+?)\s*$/);
+  if (h3) {
+    title = h3[1].trim();
+    i++;
+  }
+  const body = lines.slice(i).join("\n").trim();
+  if (!body) return undefined;
+  return { title, body: renderBlock(body).trim() };
 }
 
 // --------- modern deep dives ----------

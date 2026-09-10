@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { DeepDive, Edition, InlineLink, WorthReadingItem } from "@/lib/editions";
+import type { Aside, DeepDive, Edition, InlineLink, WorthReadingItem } from "@/lib/editions";
 import { sectionId } from "./sectionIds";
 
 const WASH_COLOURS = [
@@ -50,6 +50,33 @@ export function OpeningSection({ opening }: { opening?: string }) {
               dangerouslySetInnerHTML={{ __html: opening }}
             />
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Rendered between the Opening and the Deep Dives. Narrower than every other
+// section (max-w-3xl against the dives' max-w-5xl) so the indent itself signals
+// that this sits outside the edition's usual run of sections.
+export function AsideSection({ aside }: { aside?: Aside }) {
+  if (!aside) return null;
+  return (
+    <section className="px-6 pt-2 pb-8 md:pb-12">
+      <div className="max-w-3xl mx-auto">
+        <div className="aside-card p-6 md:p-8">
+          <p className="eyebrow mb-2" id="aside" data-jump-target>
+            Aside
+          </p>
+          {aside.title ? (
+            <h2 className="font-display-italic text-2xl md:text-3xl text-[#142028] leading-snug tracking-tight mb-4">
+              {aside.title}
+            </h2>
+          ) : null}
+          <div
+            className="prose-ink"
+            dangerouslySetInnerHTML={{ __html: aside.body }}
+          />
         </div>
       </div>
     </section>
@@ -335,7 +362,7 @@ function ExternalLink({
 }
 
 // Suppress unused-import lint for types that are used only as prop types above.
-export type { InlineLink };
+export type { InlineLink, Aside };
 
 // Home/edition page shell that renders all sections in order.
 export function EditionBody({ edition }: { edition: Edition }) {
@@ -346,6 +373,7 @@ export function EditionBody({ edition }: { edition: Edition }) {
   return (
     <>
       <OpeningSection opening={edition.opening} />
+      <AsideSection aside={edition.aside} />
       <DeepDivesSection deepDives={edition.deepDives} variant={variant} />
       <WorthReadingSection items={edition.worthReading} />
     </>

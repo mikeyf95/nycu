@@ -177,6 +177,60 @@ nav:not([data-jump-nav]) {
   z-index: 1;
 }
 
+/* Aside - a pull-out explainer that sits outside the Opening / Deep Dives /
+   Worth Reading flow. Deliberately NOT a .paper card: it takes an ochre ground
+   and a heavy left rule instead of white paper and a drop shadow, so it reads
+   as marginalia pinned beside the edition rather than another section of it.
+   Ochre is unused by the Opening (teal) and by the first dive washes. */
+.aside-card {
+  position: relative;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(200, 162, 90, 0.15),
+      rgba(200, 162, 90, 0.05) 55%,
+      rgba(200, 162, 90, 0.02) 100%
+    );
+  border: 1px solid rgba(200, 162, 90, 0.32);
+  border-left: 4px solid var(--color-ochre);
+  /* Square off the ruled edge so the left rule reads as a margin mark. */
+  border-radius: 3px 16px 16px 3px;
+  overflow: hidden;
+}
+
+/* Faint paper-fold wash in the lower right, mirroring the dive cards' top-right
+   bleed so the aside sits in the same watercolour language, reversed. */
+.aside-card::before {
+  content: "";
+  position: absolute;
+  bottom: -35%;
+  right: -15%;
+  width: 60%;
+  height: 85%;
+  background: radial-gradient(ellipse at 60% 50%, rgba(200, 162, 90, 0.20), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(8px);
+}
+
+.aside-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.aside-card .eyebrow {
+  color: var(--color-ochre-deep);
+}
+
+/* Slightly tighter measure than body prose - it is a note, not an article. */
+.aside-card .prose-ink {
+  font-size: 0.97rem;
+}
+
+.aside-card .prose-ink a {
+  text-decoration-color: rgba(138, 106, 42, 0.5);
+}
+
 /* Hashtag pills */
 .tag {
   display: inline-flex;

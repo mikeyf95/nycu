@@ -6,7 +6,7 @@ import type { Edition } from "@/lib/editions";
 export type JumpItem = {
   id: string;
   label: string;
-  kind: "opening" | "dive" | "group";
+  kind: "opening" | "aside" | "dive" | "group";
   colour?: string;
 };
 
@@ -34,6 +34,9 @@ export function buildJumpItems(edition: Edition): JumpItem[] {
   const items: JumpItem[] = [];
   if (edition.opening) {
     items.push({ id: "opening", label: "Opening", kind: "opening" });
+  }
+  if (edition.aside) {
+    items.push({ id: "aside", label: "Aside", kind: "aside", colour: "#8a6a2a" });
   }
   edition.deepDives.forEach((d, i) => {
     if (!d.title) return;
