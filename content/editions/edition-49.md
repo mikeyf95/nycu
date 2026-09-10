@@ -60,10 +60,46 @@ In short: **generative AI *creates*, agents *act*, and agentic systems *pursue g
 
 ## Worth Reading
 
+<!-- Provisional through 10 September 2026. A final closing-day sweep is still required for 11 September. -->
+
 ### Legal Market and Delivery
+
+- **[Litera launches Lito and its AI Hub](https://www.litera.com/news/litera-launches-lito-and-ai-hub-bringing-secure-governed-ai-to-more-than-80000-legal-professionals):** Litera says its legal AI is now available to more than 80,000 professionals through a governed platform spanning drafting, review and firm knowledge. The scale is significant; the accuracy, adoption and productivity claims remain supplier-reported.
+
+- **[Legora introduces its agentic operating system](https://legora.com/newsroom/legora-introduces-the-legora-aos-the-agentic-operating-system-for-legal-work):** Legora is positioning aOS as the connective layer between legal information, communications and execution. The interesting question is whether it becomes useful infrastructure or simply makes one supplier the gateway to more of the legal workflow.
+
+- **[Lexroom expands through acquisitions in France and Bulgaria](https://www.lexroom.ai/de/blog/legal-ai-in-europa-lexroom-expandiert-mit-ersten-ubernahmen-nach-frankreich-und-bulgarien):** The acquisitions of Query Juriste and Praven Intelekt take Lexroom into five European markets. This is another indication that jurisdiction-specific legal data and local workflows may be a stronger moat than the underlying general model.
+
+- **[RELX completes its acquisition of Doctrine](https://www.lexisnexis.com/community/pressroom/b/news/posts/relx-completes-acquisition-of-doctrine-and-sets-ambition-to-serve-one-million-legal-professionals-across-europe):** Doctrine now sits within LexisNexis CEMEA, bringing a European legal-AI platform and its content further inside a major legal-information incumbent. The one-million-user ambition is a target, not an outcome.
+
+- **[Filevine adds citation and anti-hallucination checks to LOIS](https://www.filevine.com/news/filevine-introduces-anti-hallucination-for-lois-legal-research/):** Filevine says LOIS can verify authorities, quotations and whether cited cases support the propositions made. It is a useful product direction, but jurisdictional coverage, false positives and effectiveness still require independent testing.
 
 ### Policy, Courts and Governance
 
+- **[UK Government publishes an AI Risk Management Toolkit](https://www.gov.uk/government/publications/ai-risk-management-toolkit/ai-risk-management-toolkit-guidance):** This is guidance rather than a new legal regime. Its value is practical: it translates responsible-AI principles into a lifecycle process covering identification, assessment, treatment, monitoring and reporting.
+
+- **[US Department of Justice proposes a settlement with RealPage](https://www.justice.gov/opa/pr/justice-department-requires-realpage-end-sharing-competitively-sensitive-information-and):** The case is about rental-pricing software and information sharing, not generative AI. It is nevertheless a useful reminder that automated-system risk can arise from aggregated data, incentives and coordinated recommendations, even where no chatbot is involved.
+
+- **[Keeping Children Safe in Education 2026 takes effect](https://assets.publishing.service.gov.uk/media/6a9081309a177a1decf97b00/Keeping_children_safe_in_education_2026.pdf):** The guidance expressly addresses AI-generated sexual imagery within existing safeguarding duties. It does not create a separate deepfake offence, but it shows established compliance frameworks being updated for generative content.
+
+- **[Home Office begins market engagement for an AI delivery partner](https://www.contractsfinder.service.gov.uk/Notice/59e303fc-b728-4783-9e34-119e6b473705):** This is a prior-information notice, not an award. It signals that public-sector AI delivery will require an assured implementation and governance model, rather than simply access to capable models.
+
 ### Models, Agents and Risk
 
+- **[Google introduces agentic video understanding](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-agentic-video-in-gemini/):** Gemini can choose which frames, audio and transcript segments to inspect rather than processing a video uniformly. The potential relevance to investigations and evidence review is clear, but Google’s cost and accuracy improvements remain benchmark claims.
+
+- **[Google releases Gemini 3.8 Flash and Flash Cyber](https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/):** Google distinguishes generally available Flash from a cyber model restricted to trusted defenders through Fairwind. The split is a useful prompt for model-routing and work-type approvals; performance claims remain supplier-reported.
+
+- **[Anthropic formalises Fermat’s Last Theorem](https://www.anthropic.com/research/formalizing-fermats-last-theorem):** Claude reportedly produced a complete Lean formalisation of an established proof, allowing the output to be checked by software. The broader significance is verification infrastructure, not a new mathematical discovery or proof that unstructured professional outputs are equally reliable.
+
+- **[READY reframes enterprise-agent evaluation around required human review](https://arxiv.org/html/2609.02095v1):** The preprint asks how much human oversight and cost are required to achieve a defined reliability threshold, rather than relying on headline task accuracy. Its demonstration is in clinical audit, so transfer to legal work remains to be tested.
+
 ### Capability and People
+
+- **[Stanford launches a Legal Engineering Academy](https://law.stanford.edu/stanford-legal-engineering-academy/):** Stanford is formalising a hybrid legal and technical capability focused on systems, workflows and implementation. It is a useful signal that legal engineering is becoming a teachable professional discipline rather than an informal specialism.
+
+- **[Vanderbilt Law introduces AI-supported deposition simulation](https://law.vanderbilt.edu/vanderbilt-law-partners-with-altaclaro-to-become-the-first-law-school-to-offer-ai-powered-deposim-to-students/):** DepoSim gives students repeatable advocacy practice with AI-supported feedback. The initiative has not yet produced outcome data, but it illustrates capability development moving from lectures about AI to practical simulation.
+
+- **[What work does generative AI actually do?](https://www.nber.org/papers/w35677):** This US working paper supports a picture of widespread but relatively shallow adoption. Access and occasional use do not necessarily mean that work has been redesigned; the paper is not yet peer reviewed and is not specific to legal services.
+
+- **[Workers’ perspectives on AI](https://www.bostonfed.org/publications/current-policy-perspectives/2026/workers-perspectives-on-ai.aspx):** The research records rising concern about personal job loss alongside self-reported productivity gains. It measures perceptions rather than observed displacement, but reinforces the need for credible training and career pathways alongside deployment.
