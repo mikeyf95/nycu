@@ -1,6 +1,8 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import type { Aside, DeepDive, Edition, InlineLink, WorthReadingItem } from "@/lib/editions";
 import { sectionId } from "./sectionIds";
+import { AsideNote } from "./AsideNote";
 
 const WASH_COLOURS = [
   "rgba(127, 185, 180, 0.32)", // teal
@@ -56,44 +58,27 @@ export function OpeningSection({ opening }: { opening?: string }) {
   );
 }
 
-// Rendered between the Opening and the Deep Dives. Narrower than every other
-// section (max-w-3xl against the dives' max-w-5xl) so the indent itself signals
-// that this sits outside the edition's usual run of sections.
-export function AsideSection({ aside }: { aside?: Aside }) {
-  if (!aside) return null;
-  return (
-    <section className="px-6 pt-2 pb-8 md:pb-12">
-      <div className="max-w-3xl mx-auto">
-        <div className="aside-card p-6 md:p-8">
-          <p className="eyebrow mb-2" id="aside" data-jump-target>
-            Aside
-          </p>
-          {aside.title ? (
-            <h2 className="font-display-italic text-2xl md:text-3xl text-[#142028] leading-snug tracking-tight mb-4">
-              {aside.title}
-            </h2>
-          ) : null}
-          <div
-            className="prose-ink"
-            dangerouslySetInnerHTML={{ __html: aside.body }}
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function DeepDivesSection({
   deepDives,
+  aside,
+  // Which dive the aside follows. 1 puts it between the first and second, which
+  // is where it reads best: the opening dive lands first, then the explainer,
+  // then the rest. Never trails the last dive - it would look like a footnote.
+  asideAfter = 1,
   variant = "deepDives",
 }: {
   deepDives: DeepDive[];
+  aside?: Aside;
+  asideAfter?: number;
   variant?: "deepDives" | "themes";
 }) {
   if (!deepDives.length) return null;
   const hasRealContent = deepDives.some((d) => d.what || d.soWhat || d.intro);
   if (!hasRealContent) return null;
   const isThemes = variant === "themes";
+  // Clamped so the aside always lands somewhere: on a short edition it follows
+  // the last dive rather than silently disappearing.
+  const asidePosition = Math.max(1, Math.min(asideAfter, deepDives.length));
 
   return (
     <section className="px-6 pt-4 pb-10 md:pb-16">
@@ -110,7 +95,12 @@ export function DeepDivesSection({
         ) : null}
         <div className={`${isThemes ? "" : "mt-10"} space-y-8`}>
           {deepDives.map((d, i) => (
-            <DeepDiveCard key={i} dive={d} washIndex={i} />
+            <Fragment key={i}>
+              <DeepDiveCard dive={d} washIndex={i} />
+              {aside && !isThemes && i + 1 === asidePosition ? (
+                <AsideNote aside={aside} />
+              ) : null}
+            </Fragment>
           ))}
         </div>
       </div>
@@ -373,8 +363,11 @@ export function EditionBody({ edition }: { edition: Edition }) {
   return (
     <>
       <OpeningSection opening={edition.opening} />
-      <AsideSection aside={edition.aside} />
-      <DeepDivesSection deepDives={edition.deepDives} variant={variant} />
+      <DeepDivesSection
+        deepDives={edition.deepDives}
+        aside={edition.aside}
+        variant={variant}
+      />
       <WorthReadingSection items={edition.worthReading} />
     </>
   );

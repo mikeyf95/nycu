@@ -231,6 +231,138 @@ nav:not([data-jump-nav]) {
   text-decoration-color: rgba(138, 106, 42, 0.5);
 }
 
+/* Collapsed, the card is just its header, so soften the wash until it opens. */
+.aside-card:not([data-open="true"])::before {
+  opacity: 0.5;
+}
+
+.aside-toggle {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.05rem 1.5rem;
+  background: none;
+  border: none;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: #142028;
+}
+
+.aside-toggle:focus-visible {
+  outline: 2px solid var(--color-ochre-deep);
+  outline-offset: -3px;
+  border-radius: 3px 14px 14px 3px;
+}
+
+.aside-toggle-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.aside-eyebrow {
+  font-size: 0.78rem;
+}
+
+.aside-title {
+  font-size: 1.15rem;
+  line-height: 1.3;
+  color: #142028;
+}
+
+@media (min-width: 768px) {
+  .aside-toggle {
+    padding: 1.15rem 1.75rem;
+  }
+  .aside-title {
+    font-size: 1.35rem;
+  }
+}
+
+/* Circled +/- in ochre, echoing the past-editions rail's count marker. */
+.aside-chevron {
+  flex-shrink: 0;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 162, 90, 0.55);
+  background: rgba(255, 255, 255, 0.5);
+  position: relative;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.aside-toggle:hover .aside-chevron {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: var(--color-ochre);
+}
+
+/* Two bars; the vertical one collapses to nothing when open, turning + into -. */
+.aside-chevron::before,
+.aside-chevron::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--color-ochre-deep);
+  transform: translate(-50%, -50%);
+  transition: transform 240ms ease, opacity 240ms ease;
+}
+
+.aside-chevron::before {
+  width: 0.7rem;
+  height: 1.5px;
+}
+
+.aside-chevron::after {
+  width: 1.5px;
+  height: 0.7rem;
+}
+
+.aside-chevron[data-open="true"]::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+  opacity: 0;
+}
+
+.aside-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms ease;
+}
+
+.aside-panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+
+.aside-panel-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.aside-body {
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid rgba(200, 162, 90, 0.3);
+  margin-top: 0.15rem;
+  padding-top: 1.1rem;
+}
+
+@media (min-width: 768px) {
+  .aside-body {
+    padding: 1.25rem 1.75rem 1.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aside-panel,
+  .aside-chevron::before,
+  .aside-chevron::after {
+    transition: none;
+  }
+}
+
 /* Hashtag pills */
 .tag {
   display: inline-flex;
