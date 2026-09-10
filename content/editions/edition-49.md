@@ -1,0 +1,89 @@
+## Astra moves the frontier again
+
+**Sources:** [OpenAI’s GPT-6 Astra announcement](https://openai.com/index/gpt-6-astra/) · [OpenAI’s Astra safety overview](https://openai.com/index/safety-overview-gpt-6-astra/) · [OpenAI and Legora’s financial-statement review case study](https://openai.com/index/legora-financial-statement-review-with-astra/) · [Microsoft Foundry’s Astra announcement](https://devblogs.microsoft.com/foundry/gpt-6-astra-in-azure-ai-foundry/) · [Anthropic on Fable and Mythos 5.1](https://www.anthropic.com/claude-fable-and-mythos-5-1).
+
+### What
+
+OpenAI released GPT-6 Astra on 3 September, describing it as its most capable model yet across computer use, browsing, software engineering, cybersecurity, science and professional work. Initial access is limited, with availability beginning through OpenAI and Microsoft Foundry before a broader rollout.
+
+The important change is not simply a higher benchmark score. Astra is designed for longer, multi-step work across tools and professional software: researching, navigating interfaces and producing documents, spreadsheets and presentations that follow an organisation’s instructions and templates.
+
+There is already a legal example. Legora says its Agent used Astra to complete a financial-statement tie-out across 41 documents in minutes, checking balances against supporting material and recording each result for review. In Legora’s testing, Astra found all four planted errors – including a £500,000 discrepancy – and improved performance by nearly 40% over the previous model on that particular workflow. Across Legora’s wider benchmark, however, the average improvement was closer to 3%, so this is evidence of a potentially significant gain on some tasks rather than a uniform step-change across legal work.
+
+Astra also arrives with unusually significant safeguards. OpenAI has assessed it as the first model to meet the “Critical” cybersecurity threshold in its Preparedness Framework. With the right tools and access, OpenAI says it can identify unknown vulnerabilities and develop exploits without step-by-step human guidance. Its release therefore includes restricted access to advanced cyber capabilities, additional monitoring and stronger infrastructure controls.
+
+### So what
+
+For us, the most interesting question may be whether Astra starts to level the playing field. We cannot currently use Anthropic models because of our security requirements, and releases such as Fable and Mythos have sometimes created the sense that we are missing access to part of the frontier. Anthropic describes those products as the same underlying model offered with different safeguards, with Mythos restricted to trusted-access programmes for higher-risk work.
+
+Astra is not a direct equivalent, and access to it through a legal-AI product will not necessarily expose everything the underlying model can do. But if the products available to us begin incorporating Astra – as Legora already has – it could provide a route to frontier capabilities we can actually evaluate and deploy within our approved environment.
+
+That makes the Summer Assessment more dynamic. Our results are a **snapshot of a product, model and configuration at a particular point in time**, not a permanent verdict. We should record which model was tested, who controls model selection, how upgrades are introduced and whether a material model change triggers fresh testing.
+
+The Legora results also show why that testing must remain task-specific. A large improvement on one financial-review workflow sat alongside a much smaller average gain across the wider benchmark. Astra may materially improve some of the work we care about – larger document sets, multi-step tasks and navigation across systems – without improving every use case equally.
+
+This also ties the comparison back to governance. Fable, Mythos and Astra demonstrate that access to a model is shaped by the safeguards, permissions and product layer around it. The immediate question is therefore not simply whether Astra is better, but which of its capabilities reach our tools, under what controls, and whether they narrow a gap we have previously had to accept.
+
+
+
+## Agentic fatigue: generative AI, AI agents and agentic AI – a short explainer
+
+We have all now been handed something a vendor calls an “agent”, but the word is being used for quite different things – and is beginning to lose all meaning; when something means everything, it means nothing. The following is, hopefully, a helpful working distinction.
+
+**Generative AI** produces content when asked. You give it an instruction and it returns text, a summary, a draft clause, an image, then waits for the next prompt; e.g. you might paste in a clause and ask whether its wording is unusual.
+
+An **AI agent** combines a generative model with tools and some autonomy (ergo ***agency***). You set an objective and it works through the steps needed to complete it. Ask it to check forty contracts for change-of-control provisions and it can *locate* the documents, *review* them, and *report* what each contains.
+
+Then **agentic** describes behaviour rather than a particular product. A system is more *agentic* when it can choose its route to a goal and adapt when something unexpected happens. Some suppliers apply the term to one agent; others reserve it for several agents working together. Both uses are established, so the word alone no longer really tells us what a product actually does.
+
+The platforms we're assessing illustrate – and, in a way, compound – the problem; Legora calls its advanced assistant Agent or Agent Pro. Harvey uses Agents, Workflow Agents and Agent Builder for both configured workflows and planning systems. Vesence has its main Agent, configured Custom Agents and delegated subagents. The same word therefore covers assistants, workflows, configurations and orchestrated systems.
+
+In short: **generative AI *********creates*********, agents *********act*********, and agentic systems *********pursue goals*********.**
+
+
+## From answers to work packages
+
+**Sources:** [OpenAI’s Codex usage study](https://openai.com/index/the-shift-to-agentic-ai-evidence-from-codex/) · [OpenAI on research acceleration](https://openai.com/index/research-acceleration-view-inside-openai/) · [Microsoft on Astra in Foundry](https://azure.microsoft.com/en-us/blog/gpt-6-astra-frontier-intelligence-for-work-now-generally-available-in-microsoft-foundry/)
+
+### What
+
+A new OpenAI study of tens of millions of Codex interactions suggests that the unit of work being handed to AI is getting larger. Users are asking it to tackle tasks estimated to take people progressively longer, including requests representing more than eight hours of human work, and are increasingly running several sessions at once.
+
+That does not mean Codex reliably completes an eight-hour job without intervention. The durations are estimates of the work being requested, not measured time saved or proof that every output was accepted. But the direction is significant: people are beginning to delegate chunks of work rather than individual questions.
+
+OpenAI makes a similar claim about its own research teams. It says it has reached an internally defined “automated research intern” milestone: a system capable of carrying out well-defined, human-directed research tasks that would take a skilled researcher several days. Researchers still choose the priorities, decide which results are worth pursuing and retain responsibility for consequential decisions.
+
+Microsoft presents Astra in Foundry similarly: it can plan, use approved tools and produce professional documents for review. This describes intended capability, not evidence of reliable production performance.
+
+### So what
+
+For us, the important distinction is not whether a vendor calls something an agent or “agentic”. It is whether the product can take a **bounded work package**, maintain the objective across several steps and return something that is genuinely ready for review.
+
+That could mean assembling a chronology, comparing a set of documents, populating a diligence checklist, researching an issue across agreed sources or producing a first draft using our templates. The lawyer still defines the objective, authoritative material, boundaries and standard of completion – and decides whether the result is usable.
+
+Our assessments therefore need to test the whole trajectory, not just the final answer. Did the system use the right sources? Did it preserve the state of the documents and systems it touched? Can we see what it did? How much correction was required? And did it stop where human approval was expected?
+
+The near-term opportunity is not autonomous ownership of legal work. It is better-supervised delegation of the preparation, checking and synthesis around it. That may make work worth doing which previously took too much time – but only if reviewing the output is easier than doing the task ourselves.
+## AI has entered the client journey
+
+**Sources:** [JUSTICE and the Administrative Fairness Lab’s research report](https://justice.org.uk/reports/what-ai-chatbots-can-teach-us-about-unmet-legal-needs) · [JUSTICE’s findings summary](https://justice.org.uk/news/one-in-six-people-with-a-legal-problem-turning-to-ai-for-advice---new-research)
+
+### What
+
+New research from JUSTICE and the Administrative Fairness Lab suggests that general-purpose AI is already becoming part of how people deal with legal problems.
+
+The researchers surveyed 3,287 UK adults. Of the 1,428 who had experienced a legal issue in the previous two years, 233—16.3%—had used an AI chatbot for help. Usage was highest among younger respondents: 26% of 18–24-year-olds had used one, compared with 10% of those aged 55–64.
+
+The study also examined 77 chatbot conversations shared by participants. People were not only asking for basic legal information. They used AI to interpret correspondence, draft complaints, consider strategy, check professional advice and obtain emotional reassurance while dealing with stressful disputes.
+
+The research is based partly on self-reported behaviour and a relatively small volunteered sample of conversations, so it is not a benchmark of chatbot accuracy. Its significance is that it provides direct evidence of how people are already using these tools when facing real housing, employment, debt, consumer and family problems.
+
+### So what
+
+For us, this means AI is not only changing how legal work is produced. It is changing what clients may bring into the legal process.
+
+Clients may increasingly arrive with AI-generated explanations, correspondence or assumptions about their position. Some of that material may be useful; some may be incomplete, incorrect or expressed with more confidence than the underlying answer warrants.
+
+That creates practical opportunities. Intake processes could identify where AI has already been used. Client guidance could explain how to use public tools more safely. And source-grounded, professionally supervised products could offer something general chatbots cannot: advice that clients can understand and trust.
+
+The wider point is simple. The adoption question is no longer confined to whether lawyers will use AI. People with legal problems are already doing so—whether or not the profession has designed services around that behaviour.
