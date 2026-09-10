@@ -1,6 +1,6 @@
 # Edition 49 - NYCU
-**Period:** 1st - 14th September 2026
-**Status:** Draft
+**Period:** 1st - 11th September 2026
+**Status:** Final
 
 ## Opening
 
@@ -59,8 +59,6 @@ In short: **generative AI *creates*, agents *act*, and agentic systems *pursue g
 **Sources:** [JUSTICE - What AI chatbots can teach us about unmet legal needs](https://justice.org.uk/reports/what-ai-chatbots-can-teach-us-about-unmet-legal-needs) | [JUSTICE - One in six people with a legal problem turning to AI for advice](https://justice.org.uk/news/one-in-six-people-with-a-legal-problem-turning-to-ai-for-advice---new-research)
 
 ## Worth Reading
-
-<!-- Provisional through 10 September 2026. A final closing-day sweep is still required for 11 September. -->
 
 ### Legal Market and Delivery
 

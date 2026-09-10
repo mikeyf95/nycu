@@ -61,10 +61,11 @@ export function OpeningSection({ opening }: { opening?: string }) {
 export function DeepDivesSection({
   deepDives,
   aside,
-  // Which dive the aside follows. 1 puts it between the first and second, which
-  // is where it reads best: the opening dive lands first, then the explainer,
-  // then the rest. Never trails the last dive - it would look like a footnote.
-  asideAfter = 1,
+  // Which dive the aside follows. 0 puts it above the section header, ahead of
+  // every dive, which is the default: it frames the edition, so it reads as a
+  // preface rather than as an interruption of the run of stories. A positive n
+  // interleaves it after the nth dive instead.
+  asideAfter = 0,
   variant = "deepDives",
 }: {
   deepDives: DeepDive[];
@@ -78,11 +79,16 @@ export function DeepDivesSection({
   const isThemes = variant === "themes";
   // Clamped so the aside always lands somewhere: on a short edition it follows
   // the last dive rather than silently disappearing.
-  const asidePosition = Math.max(1, Math.min(asideAfter, deepDives.length));
+  const asidePosition = Math.max(0, Math.min(asideAfter, deepDives.length));
 
   return (
     <section className="px-6 pt-4 pb-10 md:pb-16">
       <div className="max-w-5xl mx-auto">
+        {aside && !isThemes && asidePosition === 0 ? (
+          <div className="mb-12">
+            <AsideNote aside={aside} />
+          </div>
+        ) : null}
         {!isThemes ? (
           <SectionHeader
             eyebrow="Deep Dives"
