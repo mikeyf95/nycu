@@ -4,6 +4,12 @@
 
 ## Opening
 
+Once again, while we have been assessing the market, the market has moved. OpenAI released Astra, suppliers continued their enthusiastic rebranding of everything as an “agent”, and new research suggests that people are already turning to general-purpose AI when they encounter legal problems.
+
+The common thread is that AI is not only becoming more capable – it is being given more to do. Models are moving into the products we are assessing, agents are taking on larger chunks of work, and clients may arrive with AI-generated analysis before a lawyer becomes involved.
+
+For us, that creates both an opportunity and a moving target. Astra may bring previously unavailable capabilities into our approved tools, while better agents may make meaningful work packages worth delegating. The value will depend on whether we test the right things, preserve human judgement and design services around how people are actually using AI – rather than how we assume they will use it.
+
 ## Aside
 
 ### Agentic fatigue: generative AI, AI agents and agentic AI – a short explainer
