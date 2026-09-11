@@ -451,6 +451,26 @@ function parseAside(md: string): Aside | undefined {
   return { title, body: renderBlock(body).trim() };
 }
 
+// Continuation paragraphs inside a "- **What:**" bullet arrive with their
+// list-item indent still attached. Strip the common indent before block
+// rendering, otherwise a paragraph indented four spaces or more parses as an
+// indented code block. Relative indentation is preserved, so a nested list in
+// the body still works.
+function dedentContinuation(md: string): string {
+  const lines = md.split("\n");
+  if (lines.length < 2) return md;
+  let min = Infinity;
+  for (const line of lines.slice(1)) {
+    if (!line.trim()) continue;
+    min = Math.min(min, line.length - line.replace(/^[ \t]+/, "").length);
+  }
+  if (!Number.isFinite(min) || min === 0) return md;
+  return [
+    lines[0],
+    ...lines.slice(1).map((line) => (line.trim() ? line.slice(min) : line)),
+  ].join("\n");
+}
+
 // --------- modern deep dives ----------
 
 function parseDeepDives(md: string): DeepDive[] {
@@ -514,7 +534,11 @@ function parseSingleDeepDive(chunk: string): DeepDive | null {
       if (!bm) continue;
       const label = bm[1].toLowerCase();
       const content = bm[2].trim();
-      const html = renderInline(content);
+      // Block-rendered, not inline: parseInline never emits <p>, so a What or
+      // So what written as several paragraphs used to collapse into one run of
+      // text with no error. A single-paragraph body renders the same either
+      // way, since .prose-ink zeroes the margins on a first and last <p>.
+      const html = renderBlock(dedentContinuation(content)).trim();
       if (label === "what") what = html;
       else soWhat = html;
     }
