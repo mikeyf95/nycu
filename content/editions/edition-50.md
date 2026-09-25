@@ -8,7 +8,7 @@ This fortnight's news was less about which model is best and more about everythi
 
 OpenAI launched a legal product designed to sit above the rest of the legal technology stack, with Harvey and Legora among its plugins. TypeSafe released a model that does not write anything at all, built to make the small, routine decisions inside an agent's workflow. And Anthropic disclosed that agents under test reached real systems they were never meant to touch, because a configuration error had connected them to the internet.
 
-Taken together, they change the questions worth asking as our assessment draws to a close. Which model a platform uses still matters. But so does who owns the interface our lawyers start from, how a platform divides work between models and what that does to price, and what an agent can reach and do before anyone sees it. We're therefore no longer only judging answers, we're also judging the systems that produce them.
+Taken together, they change the questions worth asking as our assessment draws to a close. Which model a platform uses still matters; but so does who owns the interface our lawyers start from, how a platform divides work between models and what that does to price, and what an agent can reach and do before anyone sees it. We're therefore no longer just judging answers, we're also judging the systems that produce them.
 
 ## Deep Dives
 
