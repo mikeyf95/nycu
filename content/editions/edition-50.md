@@ -1,6 +1,6 @@
 # Edition 50 - NYCU
 **Period:** 12th - 25th September 2026
-**Status:** Draft
+**Status:** Final
 
 ## Opening
 
